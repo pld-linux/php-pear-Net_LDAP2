@@ -1,19 +1,17 @@
 %include	/usr/lib/rpm/macros.php
 %define		_class		Net
 %define		_subclass	LDAP2
-%define		_status		beta
+%define		_status		stable
 %define		_pearname	Net_LDAP2
-
 Summary:	%{_pearname} - Object oriented interface for searching and manipulating LDAP-entries
 Summary(pl.UTF-8):	%{_pearname} - zorientowany obiektowo interfejs do wyszukiwania i obróbki wpisów LDAP
 Name:		php-pear-%{_pearname}
-Version:	2.0.0
-Release:	0.RC3.2
+Version:	2.0.9
+Release:	1
 License:	LGPL License
 Group:		Development/Languages/PHP
-Source0:	http://pear.php.net/get/%{_pearname}-%{version}RC3.tgz
-# Source0-md5:	c80cf918122dac2e0b52f4f34d8d806b
-Patch0:		%{name}-paths.patch
+Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
+# Source0-md5:	cd285da4ab27367bea339934c520ba77
 URL:		http://pear.php.net/package/Net_LDAP2/
 BuildRequires:	php-pear-PEAR
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
@@ -56,9 +54,9 @@ Ta klasa ma w PEAR status: %{_status}.
 Summary:	Tests for PEAR::%{_pearname}
 Summary(pl.UTF-8):	Testy dla PEAR::%{_pearname}
 Group:		Development/Languages/PHP
-AutoReq:	no
 Requires:	%{name} = %{version}-%{release}
 AutoProv:	no
+AutoReq:	no
 
 %description tests
 Tests for PEAR::%{_pearname}.
@@ -68,12 +66,15 @@ Testy dla PEAR::%{_pearname}.
 
 %prep
 %pear_package_setup
-%patch0 -p1
+
+mv docs/%{_pearname}/doc/examples .
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{php_pear_dir}
+install -d $RPM_BUILD_ROOT{%{php_pear_dir},%{_examplesdir}/%{name}-%{version}}
 %pear_package_install
+
+cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -82,8 +83,10 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc install.log docs/Net_LDAP2/doc
 %{php_pear_dir}/.registry/*.reg
-%{php_pear_dir}/Net/LDAP2
 %{php_pear_dir}/Net/LDAP2.php
+%{php_pear_dir}/Net/LDAP2
+
+%{_examplesdir}/%{name}-%{version}
 
 %files tests
 %defattr(644,root,root,755)
