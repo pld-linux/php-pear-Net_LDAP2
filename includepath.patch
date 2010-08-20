@@ -1,0 +1,22 @@
+--- Net_LDAP2-2.0.9/usr/share/pear/Net/LDAP2/Entry.php~	2010-08-20 20:07:04.000000000 +0300
++++ Net_LDAP2-2.0.9/usr/share/pear/Net/LDAP2/Entry.php	2010-08-20 20:08:09.521645024 +0300
+@@ -20,7 +20,7 @@
+ * Includes
+ */
+ require_once 'PEAR.php';
+-require_once 'Util.php';
++require_once 'Net/LDAP2/Util.php';
+ 
+ /**
+ * Object representation of a directory entry
+--- Net_LDAP2-2.0.9/usr/share/pear/Net/LDAP2/Filter.php~	2010-08-20 20:07:04.000000000 +0300
++++ Net_LDAP2-2.0.9/usr/share/pear/Net/LDAP2/Filter.php	2010-08-20 20:08:35.411741147 +0300
+@@ -18,7 +18,7 @@
+ * Includes
+ */
+ require_once 'PEAR.php';
+-require_once 'Util.php';
++require_once 'Net/LDAP2/Util.php';
+ 
+ /**
+ * Object representation of a part of a LDAP filter.
