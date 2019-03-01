@@ -4,12 +4,12 @@
 Summary:	%{_pearname} - Object oriented interface for searching and manipulating LDAP-entries
 Summary(pl.UTF-8):	%{_pearname} - zorientowany obiektowo interfejs do wyszukiwania i obróbki wpisów LDAP
 Name:		php-pear-%{_pearname}
-Version:	2.1.0
+Version:	2.2.0
 Release:	1
 License:	LGPL License
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
-# Source0-md5:	d2297dc542e25f7cc998865504a14c4d
+# Source0-md5:	70b4b7b033d180d148a53734af073aa6
 URL:		http://pear.php.net/package/Net_LDAP2/
 BuildRequires:	php-pear-PEAR
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
