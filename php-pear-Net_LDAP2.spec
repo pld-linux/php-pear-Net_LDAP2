@@ -1,4 +1,3 @@
-%include	/usr/lib/rpm/macros.php
 %define		_status		stable
 %define		_pearname	Net_LDAP2
 Summary:	%{_pearname} - Object oriented interface for searching and manipulating LDAP-entries
